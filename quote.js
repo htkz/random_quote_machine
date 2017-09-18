@@ -29,12 +29,15 @@ colorSet = [
 
 changeColor = function() {
     var color = "";
+    var color_fade = "";
     var des_color = colorSet[Math.floor(Math.random() * colorSet.length)];
     for (var i = 0; i < des_color.length; i++) {
-        color += des_color[i].toString(16)
+        color_fade += des_color[i].toString(16);
     }
-    console.log(color);
-    colorFade('body', 'background', 'ece7b4', color, 25, 30);
-    colorFade('fa-twitter', 'background', 'ece7b4', color, 25, 30);
-    colorFade('button-text', 'background', 'ece7b4', color, 25, 30);
+    color = "rgb(" + des_color.join() + ")";
+
+    colorFade('body', 'background', 'ece7b4', color_fade, 25, 30);
+    document.getElementById("button-twitter").style.backgroundColor = color;
+    document.getElementById("button-tumblr").style.backgroundColor = color;
+    document.getElementById("button-text").style.backgroundColor = color;
 }
